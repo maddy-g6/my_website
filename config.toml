@@ -104,8 +104,8 @@ disqusShortname = ""
       url = "blogs/IMDB-directors"
 
     [[params.tiles.showcase]]
-      title = "Magna"
-      subtitle = "Lorem Etiam Nullam"
+      title = "Magnificent"
+      subtitle = "Tile 3"
       image = "pic03.jpg"
       url = "blogs/magna"
 
