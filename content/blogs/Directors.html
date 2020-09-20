@@ -1,0 +1,133 @@
+---
+categories:
+- ""
+- ""
+date: "2020-09-20"
+description: directors
+draft: false
+#image: pic14.jpg
+keywords: ""
+slug: Directors
+title: IMDB Directors
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+<link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
+
+
+<p><a href="https://en.wikipedia.org/wiki/IMDb">IMDB</a> is an online database of information related to films, television programs, home videos, video games, and streaming content online – including cast, production crew and personal biographies, plot summaries, trivia, ratings, and fan and critical reviews. Utilising IMDB data, I want to determe whether Steven Spielberg or Tim Burton has a higher mean rating. To do this, I have constructed visualisations and ran a hypothesis test.</p>
+<hr />
+<p>First, we constructed a table of summary statistics as well as boxplots of both directors mean ratings to gain a better understanding of our dataset.</p>
+<table class="table lightable-material lightable-striped lightable-hover" style="margin-left: auto; margin-right: auto; font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+director
+</th>
+<th style="text-align:right;">
+mean_rating
+</th>
+<th style="text-align:right;">
+sd_rating
+</th>
+<th style="text-align:right;">
+count
+</th>
+<th style="text-align:right;">
+t_crit
+</th>
+<th style="text-align:right;">
+se
+</th>
+<th style="text-align:right;">
+margin_of_error
+</th>
+<th style="text-align:right;">
+ci_low
+</th>
+<th style="text-align:right;">
+ci_high
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Steven Spielberg
+</td>
+<td style="text-align:right;">
+7.57
+</td>
+<td style="text-align:right;">
+0.695
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+2.07
+</td>
+<td style="text-align:right;">
+0.145
+</td>
+<td style="text-align:right;">
+0.301
+</td>
+<td style="text-align:right;">
+7.27
+</td>
+<td style="text-align:right;">
+7.87
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tim Burton
+</td>
+<td style="text-align:right;">
+6.93
+</td>
+<td style="text-align:right;">
+0.749
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+2.13
+</td>
+<td style="text-align:right;">
+0.187
+</td>
+<td style="text-align:right;">
+0.399
+</td>
+<td style="text-align:right;">
+6.53
+</td>
+<td style="text-align:right;">
+7.33
+</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/blogs/Directors_files/figure-html/unnamed-chunk-2-1.png" width="648" style="display: block; margin: auto;" /></p>
+<hr />
+<p>To test for a difference in the means, I used a t-test with the following hypotheses:</p>
+<ul>
+<li>Ho: The mean rating for Steven Spielberg and Tim Burton is the same</li>
+<li>H1: The mean rating is not the same</li>
+</ul>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  rating by director
+## t = 3, df = 31, p-value = 0.01
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.16 1.13
+## sample estimates:
+## mean in group Steven Spielberg       mean in group Tim Burton 
+##                           7.57                           6.93</code></pre>
+<p>The t-test resulted with a t-statistic of 3 and a p-value of .01, meaning that we reject the null hypothesis. This means that there is statistically significant evidence that Steven Spielberg has a higher mean rating than Tim Burton.</p>

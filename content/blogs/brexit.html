@@ -1,0 +1,50 @@
+---
+categories:
+- ""
+- ""
+date: "2020-09-20"
+description: Brexit
+draft: false
+#image: pic14.jpg
+keywords: ""
+slug: brexit
+title: A Brief Analysis of How Political Affiliation Affected Leave Share %
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Utilizing the ggplot2 package in R, I built a graph to visualise the effects of political affiliation on leave share percentage, which is the percent of votes cast in favour of Brexit, or leaving the EU. The data is grouped by parliament constituency, and the source can be found at the bottom of this page.</p>
+<p>We can draw a few different insights from this graph. The most noticeable conclusion we can draw is the UKIP’s strong support of Brexit, whiich we can see from the strong correlation. Further, we see can a less strong, negative relationship between the Liberal Democrats.</p>
+<p>Another interesting thing we can see in the data is an apparent split of opinion in both the Labour party and the Conservative party. Both trendlines are weak and hovering around 50%, meaning that both parties are split on the percentage of people wanting to leave the EU.</p>
+<pre class="r"><code>labels &lt;- c(con_2015 = &quot;Conservative&quot;, ## labels for 
+            lab_2015 = &quot;Labour&quot;, 
+            ld_2015 = &quot;Lib Dems&quot;, 
+            ukip_2015 = &quot;UKIP&quot;)
+
+brexit_results &lt;- read_csv(&quot;brexit_results.csv&quot;)
+
+brexit_scatter &lt;- brexit_results %&gt;% 
+  pivot_longer(cols = 2:5, 
+               names_to = &quot;Party&quot;, 
+               values_to = &quot;party_percent&quot;) %&gt;% ## pivot to make party and % columns 
+  
+  ggplot(aes(x = party_percent, y = leave_share, colour = Party)) +
+  theme_bw() + 
+  geom_point(alpha =.3) + ##transparency 
+  geom_smooth(method = lm) +
+  labs(title = &quot;How political affiliation translated to Brexit Voting&quot;, 
+       x = &quot;Party % in the UK 2015 general election&quot;, 
+       y = &quot;Leave % in the 2016 Brexit referendum&quot; ) + 
+  scale_color_manual(values = c(&quot;#0087dc&quot;, 
+                                &quot;#d50000&quot;, 
+                                &quot;#FDBB30&quot;, 
+                                &quot;#EFE600&quot;), 
+                     labels = labels) + 
+  theme(legend.position = &quot;bottom&quot;, 
+        legend.title = element_blank()) + ## moves legend to bottom middle 
+  theme(plot.title = element_text(size = 12)) 
+
+brexit_scatter</code></pre>
+<p><img src="/blogs/brexit_files/figure-html/brexit_challenge-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>The data comes from <a href="https://www.thecrosstab.com/">Elliott Morris</a>, who cleaned it and made it available through his <a href="https://www.datacamp.com/courses/analyzing-election-and-polling-data-in-r">DataCamp class on analysing election and polling data in R</a>.</p>

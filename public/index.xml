@@ -6,10 +6,38 @@
     <description>Recent content on Portfolio website for Maddy Goodman</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 31 Oct 2017 22:42:51 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A Brief Analysis of How Political Affiliation Affected Leave Share %</title>
+      <link>/blogs/brexit/</link>
+      <pubDate>Sun, 20 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/brexit/</guid>
+      <description>Utilizing the ggplot2 package in R, I built a graph to visualise the effects of political affiliation on leave share percentage, which is the percent of votes cast in favour of Brexit, or leaving the EU. The data is grouped by parliament constituency, and the source can be found at the bottom of this page.
+We can draw a few different insights from this graph. The most noticeable conclusion we can draw is the UKIP’s strong support of Brexit, whiich we can see from the strong correlation.</description>
+    </item>
+    
+    <item>
+      <title>IMDB Directors</title>
+      <link>/blogs/directors/</link>
+      <pubDate>Sun, 20 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/directors/</guid>
+      <description>IMDB is an online database of information related to films, television programs, home videos, video games, and streaming content online – including cast, production crew and personal biographies, plot summaries, trivia, ratings, and fan and critical reviews. Utilising IMDB data, I want to determe whether Steven Spielberg or Tim Burton has a higher mean rating. To do this, I have constructed visualisations and ran a hypothesis test.</description>
+    </item>
+    
+    <item>
+      <title>Singapore Airbnb Analytics</title>
+      <link>/blogs/singapore/</link>
+      <pubDate>Sun, 20 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/singapore/</guid>
+      <description>Introduction Airbnb is a vacation rental online marketplace based in San Francisco, California. Founded in 2008, the company has skyrocketed in popularity, with a private valuation of $18 billion and a plan to potentially go public within the year. The scope of this work, is to analyse data about Airbnb listings and fit a model to predict the total cost for two people staying 4 nights in an AirBnB in Singapore.</description>
+    </item>
     
     <item>
       <title>Aliquam</title>
@@ -39,7 +67,7 @@
     </item>
     
     <item>
-      <title>Ipsum</title>
+      <title>Brexit</title>
       <link>/blogs/ipsum/</link>
       <pubDate>Tue, 31 Oct 2017 21:28:43 -0500</pubDate>
       

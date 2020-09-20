@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="London Business School MAM2021">
+	<meta name="author" content="Maddy Goodman">
+	<meta name="generator" content="Hugo 0.74.3" />
+	<title>A Brief Analysis of How Political Affiliation Affected Leave Share % &middot; Portfolio website for Maddy Goodman</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="/css/main.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="/" class="logo"><strong>Maddy Goodman&#39;s Portfolio Website</strong> <span></span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="/">Home</a></li>
+            
+                <li><a href="/blogs">Projects</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="/Projects" class="button special fit">My Projects</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>A Brief Analysis of How Political Affiliation Affected Leave Share %</h1>
+                            </header>
+                            
+                            
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Utilizing the ggplot2 package in R, I built a graph to visualise the effects of political affiliation on leave share percentage, which is the percent of votes cast in favour of Brexit, or leaving the EU. The data is grouped by parliament constituency, and the source can be found at the bottom of this page.</p>
+<p>We can draw a few different insights from this graph. The most noticeable conclusion we can draw is the UKIP’s strong support of Brexit, whiich we can see from the strong correlation. Further, we see can a less strong, negative relationship between the Liberal Democrats.</p>
+<p>Another interesting thing we can see in the data is an apparent split of opinion in both the Labour party and the Conservative party. Both trendlines are weak and hovering around 50%, meaning that both parties are split on the percentage of people wanting to leave the EU.</p>
+<pre class="r"><code>labels &lt;- c(con_2015 = &quot;Conservative&quot;, ## labels for 
+            lab_2015 = &quot;Labour&quot;, 
+            ld_2015 = &quot;Lib Dems&quot;, 
+            ukip_2015 = &quot;UKIP&quot;)
+
+brexit_results &lt;- read_csv(&quot;brexit_results.csv&quot;)
+
+brexit_scatter &lt;- brexit_results %&gt;% 
+  pivot_longer(cols = 2:5, 
+               names_to = &quot;Party&quot;, 
+               values_to = &quot;party_percent&quot;) %&gt;% ## pivot to make party and % columns 
+  
+  ggplot(aes(x = party_percent, y = leave_share, colour = Party)) +
+  theme_bw() + 
+  geom_point(alpha =.3) + ##transparency 
+  geom_smooth(method = lm) +
+  labs(title = &quot;How political affiliation translated to Brexit Voting&quot;, 
+       x = &quot;Party % in the UK 2015 general election&quot;, 
+       y = &quot;Leave % in the 2016 Brexit referendum&quot; ) + 
+  scale_color_manual(values = c(&quot;#0087dc&quot;, 
+                                &quot;#d50000&quot;, 
+                                &quot;#FDBB30&quot;, 
+                                &quot;#EFE600&quot;), 
+                     labels = labels) + 
+  theme(legend.position = &quot;bottom&quot;, 
+        legend.title = element_blank()) + ## moves legend to bottom middle 
+  theme(plot.title = element_text(size = 12)) 
+
+brexit_scatter</code></pre>
+<p><img src="/blogs/brexit_files/figure-html/brexit_challenge-1.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>The data comes from <a href="https://www.thecrosstab.com/">Elliott Morris</a>, who cleaned it and made it available through his <a href="https://www.datacamp.com/courses/analyzing-election-and-polling-data-in-r">DataCamp class on analysing election and polling data in R</a>.</p>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="https://www.github.com/maddy-g6" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://www.linkedin.com/in/maddy-goodman-060" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Company Name</li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+
+    
+
+    
+
+    </body>
+</html>

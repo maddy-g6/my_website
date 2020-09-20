@@ -1,0 +1,123 @@
+---
+categories:
+- ""
+- ""
+date: "2020-09-20"
+description: directors
+draft: false
+#image: pic14.jpg
+keywords: ""
+slug: Directors
+title: IMDB Directors
+---
+
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+```{r, load-libraries, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(GGally)
+library(readxl)
+library(here)
+library(skimr)
+library(janitor)
+library(broom)
+library(tidyquant)
+library(infer)
+library(openintro)
+library(kableExtra) ##for table styles
+```
+
+[IMDB](https://en.wikipedia.org/wiki/IMDb) is an online database of information related to films, television programs, home videos, video games, and streaming content online – including cast, production crew and personal biographies, plot summaries, trivia, ratings, and fan and critical reviews. Utilising IMDB data, I want to determe whether Steven Spielberg or Tim Burton has a higher mean rating. To do this, I have constructed visualisations and ran a hypothesis test.
+
+------------------
+
+```{r, load-movies-data, echo = FALSE}
+
+movies <- read_csv("movies.csv")
+
+```
+First, we constructed a table of summary statistics as well as boxplots of both directors mean ratings to gain a better understanding of our dataset.
+
+```{r,  out.width="100%", echo = FALSE}
+
+directors_ci <- movies %>%
+  filter(director %in% c("Steven Spielberg", "Tim Burton")) %>%
+  group_by(director) %>%
+  summarise(mean_rating = mean(rating, na.rm = TRUE),
+            sd_rating = sd(rating, na.rm = TRUE),
+            count = n(),
+            
+             #get t-crit value with (n-1) degress of freedom
+            
+            t_crit = qt(.975, count-1),
+            se = sd_rating/sqrt(count),
+            margin_of_error = t_crit*se,
+            ci_low = mean_rating - margin_of_error,
+            ci_high = mean_rating + margin_of_error)
+
+directors_ci %>% 
+  kbl() %>% 
+  kable_styling() %>% 
+  kable_material(c("striped", "hover"))
+```
+
+```{r, echo = FALSE}
+ggplot(directors_ci,
+       aes(y = reorder(director, mean_rating),
+           x = mean_rating,
+           colour = director)) +
+  geom_point(size=2) +
+  geom_errorbar(width = .1, aes(xmin = ci_low, xmax = ci_high), lwd = 1.75) +
+  geom_text(aes(label=round(mean_rating,2)),hjust=0.5, vjust=-2,
+            size=5) +
+  labs(x = "Mean IMDB Rating",
+       y = " ",
+       title = "Do Spielberg and Burton have the same mean IMDB rating?",
+       subtitle = "95% confidence intervals overlap") +
+  theme(legend.position = "none", plot.title = "bold") +
+  theme_bw() +
+  geom_rect(mapping = aes(xmin = 7.27, 
+                          xmax = 7.33, 
+                          ymin = 0, 
+                          ymax = 3), 
+            colour = "gray", 
+            alpha= 0.2) +
+  theme(legend.position = "none")
+
+
+```
+
+--------------------------------------------
+
+To test for a difference in the means, I used a t-test with the following hypotheses: 
+
+* Ho: The mean rating for Steven Spielberg and Tim Burton is the same
+* H1: The mean rating is not the same
+
+```{r, echo = FALSE}
+
+directors <- movies %>%
+ filter(director == "Steven Spielberg" | director=="Tim Burton")
+
+t.test(rating ~ director, data = directors)
+
+```
+The t-test resulted with a t-statistic of 3 and a p-value of .01, meaning that we reject the null hypothesis. This means that there is statistically significant evidence that Steven Spielberg has a higher mean rating than Tim Burton. 
