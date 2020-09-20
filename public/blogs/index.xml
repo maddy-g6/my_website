@@ -12,22 +12,22 @@
     
     
     <item>
-      <title>A Brief Analysis of How Political Affiliation Affected Leave Share %</title>
+      <title>Does Steven Spielberg really beat Tim Burton in IMDB ratings?</title>
+      <link>/blogs/directors/</link>
+      <pubDate>Sun, 20 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/directors/</guid>
+      <description>IMDB is an online database of information related to films, television programs, home videos, video games, and streaming content online – including cast, production crew and personal biographies, plot summaries, trivia, ratings, and fan and critical reviews. Utilising IMDB data, I want to determe whether Steven Spielberg or Tim Burton has a higher mean rating. To do this, I have constructed visualisations and ran a hypothesis test.</description>
+    </item>
+    
+    <item>
+      <title>How Political Affiliation Translated to Brexit Voting</title>
       <link>/blogs/brexit/</link>
       <pubDate>Sun, 20 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>/blogs/brexit/</guid>
       <description>Utilizing the ggplot2 package in R, I built a graph to visualise the effects of political affiliation on leave share percentage, which is the percent of votes cast in favour of Brexit, or leaving the EU. The data is grouped by parliament constituency, and the source can be found at the bottom of this page.
 We can draw a few different insights from this graph. The most noticeable conclusion we can draw is the UKIP’s strong support of Brexit, whiich we can see from the strong correlation.</description>
-    </item>
-    
-    <item>
-      <title>IMDB Directors</title>
-      <link>/blogs/directors/</link>
-      <pubDate>Sun, 20 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/blogs/directors/</guid>
-      <description>IMDB is an online database of information related to films, television programs, home videos, video games, and streaming content online – including cast, production crew and personal biographies, plot summaries, trivia, ratings, and fan and critical reviews. Utilising IMDB data, I want to determe whether Steven Spielberg or Tim Burton has a higher mean rating. To do this, I have constructed visualisations and ran a hypothesis test.</description>
     </item>
     
     <item>
@@ -40,7 +40,7 @@ We can draw a few different insights from this graph. The most noticeable conclu
     </item>
     
     <item>
-      <title>Aliquam</title>
+      <title>Coming Soon!</title>
       <link>/blogs/aliquam/</link>
       <pubDate>Tue, 31 Oct 2017 22:42:51 -0500</pubDate>
       
@@ -49,7 +49,7 @@ We can draw a few different insights from this graph. The most noticeable conclu
     </item>
     
     <item>
-      <title>Tempus</title>
+      <title>Coming Soon!</title>
       <link>/blogs/tempus/</link>
       <pubDate>Tue, 31 Oct 2017 22:26:13 -0500</pubDate>
       
@@ -58,7 +58,7 @@ We can draw a few different insights from this graph. The most noticeable conclu
     </item>
     
     <item>
-      <title>Magna</title>
+      <title>Coming Soon!</title>
       <link>/blogs/magna/</link>
       <pubDate>Tue, 31 Oct 2017 22:26:09 -0500</pubDate>
       
@@ -67,7 +67,7 @@ We can draw a few different insights from this graph. The most noticeable conclu
     </item>
     
     <item>
-      <title>Brexit</title>
+      <title>Coming soon!</title>
       <link>/blogs/ipsum/</link>
       <pubDate>Tue, 31 Oct 2017 21:28:43 -0500</pubDate>
       

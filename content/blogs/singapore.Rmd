@@ -3,7 +3,7 @@ categories:
 - ""
 - ""
 date: "2020-09-20"
-description: Singapore Airbnb
+description: Exploratory data analysis and multiple regression models utilizing Singapore Airbnb data
 draft: false
 image: airbnb.jpg
 keywords: ""

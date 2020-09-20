@@ -67,9 +67,9 @@ disqusShortname = ""
     #    url = "UrlOfLink"
 
     # Button Style 1
-    [[params.navigation.button1]]
-      name = "My Projects"
-      url = "Projects"
+##    [[params.navigation.button1]]
+##      name = "My Projects"
+##      url = "Projects"
 
     # Button Style 2
  #   [[params.navigation.button2]]
@@ -82,8 +82,8 @@ disqusShortname = ""
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
     title = "Hi, my name is Maddy Goodman"
-    subtitle = "A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP\nAND RELEASED UNDER THE CREATIVE COMMONS."
-    buttonText = "Get Started"
+    subtitle = " "
+    buttonText = "My Projects"
 
 
   # Tiles Section
@@ -143,7 +143,7 @@ disqusShortname = ""
 
 With experience in finance, consulting, and executive recruiting, along with a background in mathematics, I am targeting a career that allows me to make strategic, data-driven decisions. Specifically, I am aiming for a career in consulting or tech.
 """
-    buttonText = "Get Started"
+    buttonText = "Current Projects"
     url = "blogs"
 
 
