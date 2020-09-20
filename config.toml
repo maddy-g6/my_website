@@ -1,7 +1,7 @@
 # Site settings
 baseURL = "https://maddygoodman-portfolio.netlify.app/"
 languageCode = "en-us"
-title = "Portfolio website for Maddy Goodman"
+title = "Maddy Goodman's Portfolio"
 theme = "forty"
 
 # Enter your tracking code to enable Google Analytics
@@ -81,7 +81,7 @@ disqusShortname = ""
   [params.banner]
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
-    title = "Hi, my name is Maddy Goodman"
+    title = "Maddy Goodman's Portfolio"
     subtitle = " "
     buttonText = "My Projects"
 
