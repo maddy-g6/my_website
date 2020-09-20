@@ -104,13 +104,13 @@ disqusShortname = ""
       url = "blogs/IMDB-directors"
 
     [[params.tiles.showcase]]
-      title = "Magnificent"
+      title = "Singapore AirBnB Data"
       subtitle = "Tile 3"
       image = "pic03.jpg"
       url = "blogs/magna"
 
     [[params.tiles.showcase]]
-      title = "Ipsum"
+      title = " "
       subtitle = "Nisl Sed Aliquam"
       image = "pic04.jpg"
       url = "blogs/ipsum"
